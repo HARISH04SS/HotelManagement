@@ -19,10 +19,11 @@ const residentController = {
         }
       },
       getUniResident: async (req,res) =>{
-        const getMail = req.headers;
+        const getMail = req.headers.email;
         console.log(getMail);
-        const residents = await Resident.findById('getMail');
-        res.json(residents);
+
+        const resident = await Resident.findOne({ email: getMail });
+        res.json(resident);
     }
 };
 
